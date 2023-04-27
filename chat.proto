@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+service Chat {
+  rpc SendMessage (SendMessageRequest) returns (SendMessageResponse) {}
+  rpc StreamMessages (StreamMessagesRequest) returns (stream StreamMessagesResponse) {}
+}
+
+message SendMessageRequest {
+  string username = 1;
+  string message = 2;
+}
+
+message SendMessageResponse {
+  bool success = 1;
+}
+
+message StreamMessagesRequest {}
+
+message StreamMessagesResponse {
+  string username = 1;
+  string message = 2;
+}
